@@ -1,4 +1,4 @@
-TARGETS = src/main.cpp src/gfx.cpp src/load.cpp src/model.cpp
+TARGETS = src/main.cpp src/gfx.cpp src/system.cpp src/model.cpp
 GLFW_INCLUDE = -Ilib/glfw/include
 GLFW_LIB = -Llib/glfw/lib -lglfw3 -lgdi32 -lopengl32
 CXX = g++

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "interface.hpp"
 
 using namespace std;

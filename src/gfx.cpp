@@ -37,7 +37,6 @@ void gfx::init(){
         write_dbg("GFX", "Failed to create window");
     }
     glfwMakeContextCurrent(root);
-    glfwSwapInterval(1);
 }
 
 void gfx::swap(){

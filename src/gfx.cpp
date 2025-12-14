@@ -4,10 +4,6 @@
 using namespace std;
 
 GLFWwindow *root = nullptr;
-// window stuff
-static int screen_width = 800;
-static int screen_height = 600;
-static bool fullscreen = false;
 
 // For render and native mod
 GLFWwindow *gfx::get_window(){
@@ -67,6 +63,10 @@ void gfx::draw_2d_quad(int x, int y, int w, int h){
 
 void gfx::end(){
     glEnd();
+}
+
+float gfx::screen_aspect(){
+    return screen_width/screen_height;
 }
 
 void gfx::kill(){

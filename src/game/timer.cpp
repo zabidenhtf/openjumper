@@ -20,8 +20,9 @@ void timer::update(double tick){
 }
 
 void timer::render(){
-    gfx::viewport(0,0,800,600);
-    gfx::mapscreen(0,0,800,600);
+    int width = 300*gfx::screen_aspect();
+    gfx::viewport(0,0,screen_width, screen_height);
+    gfx::mapscreen(0,0, width,300);
 
     // TODO: Make images like 3, 2, 1, GO!
     // TODO: Make cool animation
@@ -39,6 +40,6 @@ void timer::render(){
     }
 
     gfx::begin_quads();
-    gfx::draw_2d_quad(0,0,150,150);
+    gfx::draw_2d_quad(width/2-150/2,150-150/2,150,150);
     gfx::end();
 }

@@ -1,6 +1,11 @@
 #include "timer.hpp"
 #include <iostream>
 
+timer::timer(){
+    write_dbg("TIMER","Timer initialisated");
+    reset();
+}
+
 void timer::reset(){
     write_dbg("TIMER","Timer reset");
     time = 0;

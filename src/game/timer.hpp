@@ -6,6 +6,7 @@
 
 class timer{
 public:
+    timer();
     void reset();
     void update(double tick);
     void render();

@@ -1,25 +1,22 @@
 #include "interface.hpp"
+#include "game/game.hpp"
 #include <chrono>
 #include <thread>
-
-#include "game/timer.hpp"
 
 const float FPS = 60.00f;
 const float frame_time = 1.0 / FPS;
 double last_time = glfwGetTime();
 
-double timer_time = 4;
 
 using namespace std;
 
 int main(){
     gfx::init();
 
-    // Components
-    timer *timer_component;
+    game_core *game;
 
-    timer_component->timer_time = timer_time;
-    timer_component->reset();
+    game->init();
+
     while(!glfwWindowShouldClose(gfx::get_window())){
         gfx::clear(0,0,0);
         double frame_start = glfwGetTime();
@@ -27,7 +24,7 @@ int main(){
         double delta = frame_start - last_time;
         last_time = frame_start;
 
-        timer_component->update(delta);
+        game->update(delta);
 
         gfx::swap();
 

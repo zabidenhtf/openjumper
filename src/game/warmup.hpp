@@ -1,5 +1,5 @@
-#ifndef GAME_TIMER_H
-#define GAME_TIMER_H
+#ifndef GAME_WARMUP_H
+#define GAME_WARMUP_H
 
 #include "../interface.hpp"
 #include "../system.hpp"
@@ -15,4 +15,4 @@ public:
     double timer_time;
 };
 
-#endif // GAME_TIMER_H
+#endif // GAME_WARMUP_H

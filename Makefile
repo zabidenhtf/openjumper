@@ -1,4 +1,4 @@
-TARGETS = src/main.cpp src/gfx.cpp src/system.cpp src/game/warmup.cpp src/game/game.cpp
+TARGETS = src/main.cpp src/gfx.cpp src/system.cpp src/game/warmup.cpp src/game/game.cpp src/game/controls.cpp
 GLFW_INCLUDE = -Ilib/glfw/include
 GLFW_LIB = -Llib/glfw/lib -lglfw3 -lgdi32 -lopengl32
 LODE_PNG_INCLUDE = -Ilib/png

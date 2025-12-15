@@ -1,9 +1,14 @@
 #include <GLFW/glfw3.h>
+#include <vector>
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
+using namespace std;
+
 static int screen_width = 1200;
 static int screen_height = 600;
+
+//vector<char> key_buffer; // keys buffer, it need to save keys
 
 // Interface GFX
 namespace gfx

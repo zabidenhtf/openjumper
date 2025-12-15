@@ -1,21 +1,21 @@
-#include "timer.hpp"
-#include <iostream>
+#include "warmup.hpp"
+//#include <iostream>
 
-timer::timer(){
-    write_dbg("TIMER","Timer initialisated");
+warmup::warmup(){
+    write_dbg("WARMUP","Timer initialisated");
     reset();
 }
 
-void timer::reset(){
-    write_dbg("TIMER","Timer reset");
+void warmup::reset(){
+    write_dbg("WARMUP","Timer reset");
     time = 0;
     active = true;
 }
 
-void timer::update(double tick){
+void warmup::update(double tick){
     if (active == true){
         time += tick;
-        //write_dbg("TIMER","updating\n"); // Some debug stuff
+        //write_dbg("WARMUP","updating\n"); // Some debug stuff
         //std::cout << time;
         if (time > timer_time){
             active = false;
@@ -24,7 +24,7 @@ void timer::update(double tick){
     }
 }
 
-void timer::render(){
+void warmup::render(){
     int width = 300*gfx::screen_aspect();
     gfx::viewport(0,0,screen_width, screen_height);
     gfx::mapscreen(0,0, width,300);

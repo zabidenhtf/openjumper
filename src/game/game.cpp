@@ -2,11 +2,11 @@
 
 void game_core::init(){
     write_dbg("GAME", "game launched");
-    timer_component = new timer();
+    warmup_component = new warmup();
     // Params
-    timer_component->timer_time = TIMER_TIME;
+    warmup_component->timer_time = WARMUP_TIME;
 }
 
 void game_core::update(double tick){
-    timer_component->update(tick);
+    warmup_component->update(tick);
 }

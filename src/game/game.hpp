@@ -1,8 +1,8 @@
 #ifndef GAME_CORE_H
 #define GAME_CORE_H"
 
-#define TIMER_TIME 4
-#include "timer.hpp"
+#define WARMUP_TIME 4
+#include "warmup.hpp"
 
 class game_core{
 public:
@@ -10,7 +10,7 @@ public:
     void update(double tick);
 private:
     // Components
-    timer *timer_component;
+    warmup *warmup_component;
 };
 
 #endif // GAME_CORE_H

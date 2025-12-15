@@ -4,9 +4,9 @@
 #include "../interface.hpp"
 #include "../system.hpp"
 
-class timer{
+class warmup{
 public:
-    timer();
+    warmup();
     void reset();
     void update(double tick);
     void render();

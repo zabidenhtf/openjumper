@@ -36,6 +36,7 @@ public:
     void init();
     void update(double tick);
 private:
+    vector<component> components;
     // Components
     warmup *warmup_component;
     controls *controls_component;

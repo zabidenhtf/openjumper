@@ -3,13 +3,15 @@
 
 #include "../interface.hpp"
 #include "../system.hpp"
+#include "component.hpp"
 
-class warmup{
+class warmup : public component
+{
 public:
     warmup();
-    void reset();
-    void update(double tick);
-    void render();
+    virtual void reset();
+    virtual void update(double tick);
+    virtual void render();
     bool active = true;
     double time = 0;
     double timer_time;

@@ -7,6 +7,7 @@ warmup::warmup(){
     gfx::load_texture("assets/ui/digit2.png", digit2);
     gfx::load_texture("assets/ui/digit3.png", digit3);
     gfx::load_texture("assets/ui/message_go.png", message_go);
+
     reset();
 }
 

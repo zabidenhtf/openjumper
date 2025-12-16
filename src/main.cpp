@@ -7,7 +7,6 @@ const float FPS = 60.00f;
 const float frame_time = 1.0 / FPS;
 double last_time = glfwGetTime();
 
-
 using namespace std;
 
 int main(){

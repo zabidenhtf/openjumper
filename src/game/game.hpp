@@ -1,5 +1,5 @@
 #ifndef GAME_CORE_H
-#define GAME_CORE_H"
+#define GAME_CORE_H
 
 #define WARMUP_TIME 4
 #include "warmup.hpp"

@@ -1,5 +1,6 @@
 #include "warmup.hpp"
 //#include <iostream>
+#include "game.hpp"
 
 warmup::warmup(){
     write_dbg("WARMUP","Timer initialisated");
@@ -24,6 +25,8 @@ void warmup::update(double tick){
         //std::cout << time;
         if (time > timer_time){
             active = false;
+            write("Game started\n");
+            game->game_started = true;
         }
         render();
     }

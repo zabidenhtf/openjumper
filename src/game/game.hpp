@@ -33,13 +33,16 @@ float beat_speed; // Speed of movements
 class game_core{
 public:
     dance_sequence generate_dance(DANCE_LEVELS level);
-    void init();
+    game_core();
     void update(double tick);
+    bool game_started = false;
 private:
     vector<component> components;
     // Components
     warmup *warmup_component;
     controls *controls_component;
 };
+
+extern game_core *game;
 
 #endif // GAME_CORE_H

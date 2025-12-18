@@ -63,7 +63,7 @@ dance_sequence game_core::generate_dance(DANCE_LEVELS level){
     return buffer;
 }
 
-void game_core::init(){
+game_core::game_core(){
     write_dbg("GAME", "game launched");
     warmup_component = new warmup();
     controls_component = new controls();

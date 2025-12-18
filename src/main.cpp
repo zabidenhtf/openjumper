@@ -7,14 +7,14 @@ const float FPS = 60.00f;
 const float frame_time = 1.0 / FPS;
 double last_time = glfwGetTime();
 
+game_core* game = nullptr;
+
 using namespace std;
 
 int main(){
     gfx::init();
 
-    game_core *game;
-
-    game->init();
+    game = new game_core();
 
     while(!glfwWindowShouldClose(gfx::get_window())){
         gfx::clear(0,0,0);

@@ -10,6 +10,12 @@ SHUFFLE_FORWARD,
 SHUFFLE_BACKWARD
 };
 
+DANCE_LEVELS levels_list[]{
+EASY,
+NORMAL,
+HARD
+};
+
 dance_sequence game_core::generate_dance(DANCE_LEVELS level){
     dance_sequence buffer;
 
@@ -68,12 +74,12 @@ game_core::game_core(){
     warmup_component = new warmup();
     controls_component = new controls();
 
-    dance_sequence now_dance = generate_dance(EASY);
+    now_dance = generate_dance(levels_list[randint(0,2)]);
 
     warmup_component->timer_time = WARMUP_TIME;
 }
 
 void game_core::update(double tick){
     warmup_component->update(tick);
-    //controls_component->update(tick);
+    controls_component->update(tick);
 }

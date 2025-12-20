@@ -36,8 +36,9 @@ public:
     game_core();
     void update(double tick);
     bool game_started = false;
+    dance_sequence now_dance;
 private:
-    vector<component> components;
+    //vector<component> components;
     // Components
     warmup *warmup_component;
     controls *controls_component;

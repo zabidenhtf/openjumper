@@ -10,8 +10,15 @@ class controls : public component
 public:
     controls();
     virtual void reset(){return;};
-    virtual void update(double tick){return;};
-    virtual void render(){return;};
+    virtual void update(double tick);
+    virtual void render();
+
+    double time=0;
+    double step_time=-0.05;
+    int step = 0;
+private:
+    int size = screen_height/12;
+    int distance = 35;
 };
 
 #endif // GAME_CONTROLS_H

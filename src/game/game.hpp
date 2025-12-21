@@ -26,6 +26,7 @@ HARD=70
 
 struct dance_sequence{
 vector<DANCE_MOVEMENTS> movements;
+DANCE_LEVELS level;
 float beat_speed; // Speed of movements
 };
 

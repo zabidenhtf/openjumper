@@ -18,6 +18,7 @@ HARD
 
 dance_sequence game_core::generate_dance(DANCE_LEVELS level){
     dance_sequence buffer;
+    buffer.level = level;
 
     for (int i = 0; i < level; i++){
         DANCE_MOVEMENTS movement;
@@ -74,7 +75,7 @@ game_core::game_core(){
     warmup_component = new warmup();
     controls_component = new controls();
 
-    now_dance = generate_dance(levels_list[randint(0,2)]);
+    now_dance = generate_dance(EASY);
 
     warmup_component->timer_time = WARMUP_TIME;
 }

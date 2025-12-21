@@ -18,6 +18,9 @@ void controls::update(double tick){
             step_time = 0;
             cout << "STEP:" << step << "after " << 1 << "\n";
         }
+        if (step >= game->now_dance.level){
+            game->game_started = false;
+        }
         render();
     }
 }
@@ -30,7 +33,7 @@ void controls::render(){
     gfx::set_color(1,1,1,1);
 
     // Making many buttons of dance, and animate it
-    for (int i = 0; i < game->now_dance.movements.size(); i++){
+    for (int i = 0; i < game->now_dance.level; i++){
         switch (game->now_dance.movements[i]){
         case JUMP:
             gfx::enable_texture(data2d::textures[BUTTON_JUMP]);
@@ -52,7 +55,7 @@ void controls::render(){
             break;
         }
         gfx::begin_quads();
-        gfx::draw_2d_quad(i*(size+distance) - time*(size/0.5+distance/0.5), 300-size, size, size);
+        gfx::draw_2d_quad(i*(size+distance) - (time*(size+distance)/0.5), 300-size, size, size);
         gfx::end();
         gfx::disable_texture();
     }

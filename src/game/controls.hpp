@@ -16,6 +16,8 @@ public:
     double time=0;
     double step_time=0;
     int step = 0;
+    bool press_time;
+    bool can_press = true;
 private:
     int size = screen_height/12;
     int distance = 35;

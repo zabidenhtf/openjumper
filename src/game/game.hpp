@@ -38,6 +38,7 @@ public:
     void update(double tick);
     bool game_started = false;
     dance_sequence now_dance;
+    int score = 0;
 private:
     //vector<component> components;
     // Components

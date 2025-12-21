@@ -55,6 +55,7 @@ int main(){
 
         game->update(delta);
 
+        key_buffer.clear();
         gfx::swap();
 
         double frame_end = glfwGetTime();

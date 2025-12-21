@@ -16,8 +16,25 @@ void controls::update(double tick){
         if (step_time >= 0.5){
             step++;
             step_time = 0;
-            cout << "STEP:" << step << "after " << 1 << "\n";
+            can_press = true;
         }
+        // Time to press key
+        if (0.15 <= step_time && can_press == true){
+            //write("PRESS");
+            press_time = true;
+        }
+        else{
+            press_time = false;
+        }
+        if (!key_buffer.empty()){
+            if (key_buffer.back() == GLFW_KEY_SPACE && press_time == true){
+                //write("Pressed");
+                press_time = false;
+                can_press = false;
+                game->score += 20;
+            }
+        }
+
         if (step >= game->now_dance.level){
             game->game_started = false;
         }
@@ -62,7 +79,7 @@ void controls::render(){
     // helpfull arrow
     gfx::enable_texture(data2d::textures[BUTTON_ARROW]);
     gfx::begin_quads();
-    gfx::draw_2d_quad(size/8, 300-size*1.5, size/4, size/4);
+    gfx::draw_2d_quad(size/8, 300-size, size/4, size/4);
     gfx::end();
     gfx::disable_texture();
 }

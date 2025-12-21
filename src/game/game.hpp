@@ -6,7 +6,7 @@
 #include "controls.hpp"
 #include "../interface.hpp"
 #include "../system.hpp"
-#include <vector>
+#include "../includes.hpp"
 
 
 enum DANCE_MOVEMENTS{ // TODO: Make keyboard movement

@@ -1,7 +1,8 @@
 // OpenJumper base lib
-#include <string>
 #ifndef SYSTEM_H
 #define SYSTEM_H
+
+#include "includes.hpp"
 
 using namespace std;
 

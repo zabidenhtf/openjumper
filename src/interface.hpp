@@ -1,6 +1,5 @@
 #include <GLFW/glfw3.h>
-#include <vector>
-#include <string>
+#include "includes.hpp"
 #ifndef INTERFACE_H
 #define INTERFACE_H
 

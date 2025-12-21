@@ -13,13 +13,13 @@ void controls::update(double tick){
         time += tick;
         step_time += tick;
 
-        if (step_time >= 0.5){
+        if (step_time >= speed){
             step++;
             step_time = 0;
             can_press = true;
         }
         // Time to press key
-        if (0.15 <= step_time && can_press == true){
+        if (distance / ((size+distance)/speed) <= step_time && can_press == true){
             //write("PRESS");
             press_time = true;
         }
@@ -72,7 +72,7 @@ void controls::render(){
             break;
         }
         gfx::begin_quads();
-        gfx::draw_2d_quad(i*(size+distance) - (time*(size+distance)/0.5), 300-size, size, size);
+        gfx::draw_2d_quad(i*(size+distance) - (time*(size+distance)/speed), 300-size, size, size);
         gfx::end();
         gfx::disable_texture();
     }

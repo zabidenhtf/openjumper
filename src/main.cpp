@@ -1,8 +1,7 @@
 #include "interface.hpp"
 #include "data.hpp"
 #include "game/game.hpp"
-#include <chrono>
-#include <thread>
+#include "includes.hpp"
 
 // Target fps and another configs
 const float FPS = 60.00f;

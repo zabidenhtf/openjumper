@@ -13,14 +13,11 @@ void controls::update(double tick){
         time += tick;
         step_time += tick;
 
-        if (step_time >= 0.75*2){
+        if (step_time >= 0.5){
             step++;
             step_time = 0;
             cout << "STEP:" << step << "after " << 1 << "\n";
         }
-
-
-
         render();
     }
 }
@@ -55,7 +52,7 @@ void controls::render(){
             break;
         }
         gfx::begin_quads();
-        gfx::draw_2d_quad(i*(size + distance)-time*size, 300-size, size, size);
+        gfx::draw_2d_quad(i*(size+distance) - time*(size/0.5+distance/0.5), 300-size, size, size);
         gfx::end();
         gfx::disable_texture();
     }

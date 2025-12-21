@@ -14,7 +14,7 @@ public:
     virtual void render();
 
     double time=0;
-    double step_time=-0.05;
+    double step_time=0;
     int step = 0;
 private:
     int size = screen_height/12;

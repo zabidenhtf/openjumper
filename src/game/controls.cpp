@@ -27,7 +27,7 @@ void controls::update(double tick){
             press_time = false;
         }
         if (!key_buffer.empty()){
-            if (key_buffer.back() == GLFW_KEY_SPACE && press_time == true){
+            if (key_buffer.back() == dance_binds[game->now_dance.movements[step]] && press_time == true){
                 //write("Pressed");
                 press_time = false;
                 can_press = false;

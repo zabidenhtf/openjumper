@@ -24,6 +24,8 @@ NORMAL=50,
 HARD=70
 };
 
+extern int dance_binds[]; //binds
+
 struct dance_sequence{
 vector<DANCE_MOVEMENTS> movements;
 DANCE_LEVELS level;

@@ -15,6 +15,12 @@ EASY,
 NORMAL,
 HARD
 };
+int dance_binds[] = {GLFW_KEY_E,
+                     GLFW_KEY_A,
+                     GLFW_KEY_D,
+                     GLFW_KEY_Q,
+                     GLFW_KEY_W,
+                     GLFW_KEY_S}; // Binds
 
 dance_sequence game_core::generate_dance(DANCE_LEVELS level){
     dance_sequence buffer;

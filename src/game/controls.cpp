@@ -19,7 +19,7 @@ void controls::update(double tick){
             can_press = true;
         }
         // Time to press key
-        if (distance / ((size+distance)/speed) <= step_time && can_press == true){
+        if (step_time <= size / ((size+distance)/speed) && can_press == true){
             //write("PRESS");
             press_time = true;
         }

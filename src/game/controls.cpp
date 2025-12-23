@@ -52,7 +52,7 @@ void controls::render(){
     for (int i = 0; i<screen_width/64; i++){
             gfx::enable_texture(data2d::textures[BUTTONS_LINE]);
         gfx::begin_quads();
-        gfx::draw_2d_quad(i*64, 300-size/2-8, 64, 16);
+        gfx::draw_2d_quad(i*64, 300-size/2-4, 64, 8);
         gfx::end();
         gfx::disable_texture();
     }

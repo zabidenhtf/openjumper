@@ -81,14 +81,19 @@ game_core::game_core(){
 
     now_dance = generate_dance(levels_list[randint(0,2)]);
 
+    // Initialisating all components
     warmup_component = new warmup();
     controls_component = new controls();
+    scene_component = new scene();
 
     controls_component->speed = now_dance.beat_speed;
     warmup_component->timer_time = WARMUP_TIME;
 }
 
 void game_core::update(double tick){
+    // Updating scene for first
+    scene_component->update(tick);
+
     warmup_component->update(tick);
     controls_component->update(tick);
 

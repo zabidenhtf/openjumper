@@ -2,8 +2,11 @@
 #define GAME_CORE_H
 
 #define WARMUP_TIME 4
+
 #include "warmup.hpp"
 #include "controls.hpp"
+#include "../scene/scene.hpp"
+
 #include "../interface.hpp"
 #include "../system.hpp"
 #include "../includes.hpp"
@@ -46,6 +49,7 @@ private:
     // Components
     warmup *warmup_component;
     controls *controls_component;
+    scene *scene_component;
 };
 
 extern game_core *game;

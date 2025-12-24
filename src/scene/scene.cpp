@@ -13,9 +13,9 @@ void scene::render(){
     gfx::viewport(0,0,screen_width, screen_height);
     gfx::mapscreen(0,0, width,300);
 
-    gfx::set_color(1,1,1,1);
+    gfx::set_color(vec4(1,1,1,1));
     gfx::disable_texture();
     gfx::begin_quads();
-    gfx::draw_2d_quad(0,0,width,300);
+    gfx::draw_2d_quad(vec2(0,0),vec2(width,300));
     gfx::end();
 }

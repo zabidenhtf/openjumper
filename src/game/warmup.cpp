@@ -34,10 +34,11 @@ void warmup::render(){
     gfx::mapscreen(0,0, width,300);
 
     // TODO: Make cool animation
-    gfx::set_color(1,1,1,1);
+    gfx::set_color(vec4(1,1,1,1));
 
     int state;
 
+    // TODO: Fix states in warmup
     if (0 < time && time < timer_time/4){
         state = 4;
     }
@@ -55,28 +56,28 @@ void warmup::render(){
     case 4:
         gfx::enable_texture(data2d::textures[DIGIT3]);
         gfx::begin_quads();
-        gfx::draw_2d_quad(width/2-150/2,150-150/2,150,150);
+        gfx::draw_2d_quad(vec2(width/2-150/2,150-150/2),vec2(150,150));
         gfx::disable_texture();
         gfx::end();
         break;
     case 3:
         gfx::enable_texture(data2d::textures[DIGIT2]);
         gfx::begin_quads();
-        gfx::draw_2d_quad(width/2-150/2,150-150/2,150,150);
+        gfx::draw_2d_quad(vec2(width/2-150/2,150-150/2),vec2(150,150));
         gfx::disable_texture();
         gfx::end();
         break;
     case 2:
         gfx::enable_texture(data2d::textures[DIGIT1]);
         gfx::begin_quads();
-        gfx::draw_2d_quad(width/2-150/2,150-150/2,150,150);
+        gfx::draw_2d_quad(vec2(width/2-150/2,150-150/2),vec2(150,150));
         gfx::disable_texture();
         gfx::end();
         break;
     case 1:
         gfx::enable_texture(data2d::textures[MESSAGE_GO]);
         gfx::begin_quads();
-        gfx::draw_2d_quad(width/2-300/2,150-150/2,300,150); // fixed size
+        gfx::draw_2d_quad(vec2(width/2-300/2,150-150/2),vec2(300,150)); // fixed size
         gfx::disable_texture();
         gfx::end();
         break;

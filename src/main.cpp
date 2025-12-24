@@ -20,8 +20,6 @@ namespace data2d {
     }
 }
 
-using namespace std;
-
 int main(){
     gfx::init();
     input::init(gfx::get_window());

@@ -2,10 +2,7 @@
 #define DATA_H
 
 #include "interface.hpp"
-#include <vector>
-#include <string>
-
-using namespace std;
+#include "includes.hpp"
 
 // 2D stuff
 namespace data2d {

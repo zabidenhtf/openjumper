@@ -1,8 +1,5 @@
 #include "system.hpp"
 #include "interface.hpp"
-#include "lodepng/lodepng.h"
-
-using namespace std;
 
 GLFWwindow *root = nullptr;
 
@@ -53,16 +50,16 @@ void gfx::begin_quads(){
     glBegin(GL_QUADS);
 }
 
-void gfx::set_color(double r, double g, double b, double a){
-    glColor4f(r,g,b,a);
+void gfx::set_color(vec4 color){
+    glColor4f(color.x,color.y,color.z,color.w);
 }
 
 // TODO: add 3D stuff
-void gfx::draw_2d_quad(double x, double y, double w, double h){
-    glTexCoord2f(0.f, 0.f); glVertex2f(x,     y);
-    glTexCoord2f(1.f, 0.f); glVertex2f(x + w, y);
-    glTexCoord2f(1.f, 1.f); glVertex2f(x + w, y + h);
-    glTexCoord2f(0.f, 1.f); glVertex2f(x,     y + h);
+void gfx::draw_2d_quad(vec2 pos, vec2 size){
+    glTexCoord2f(0.f, 0.f); glVertex2f((float)pos.x, pos.y);
+    glTexCoord2f(1.f, 0.f); glVertex2f(pos.x + size.x, pos.y);
+    glTexCoord2f(1.f, 1.f); glVertex2f(pos.x + size.x, pos.y + size.y);
+    glTexCoord2f(0.f, 1.f); glVertex2f(pos.x,pos.y + size.y);
 }
 
 texture gfx::load_texture(const string &filename)

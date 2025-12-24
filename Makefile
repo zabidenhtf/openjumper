@@ -13,7 +13,7 @@ GLAD_INCLUDE = -Ilib/glad/include
 GLAD_TARGETS = lib/glad/src/glad.c
 
 CXX = g++
-CXXFLAGS = -Wall
+CXXFLAGS = -Wall -g -O0
 EXEC = openjumper
 
 all:

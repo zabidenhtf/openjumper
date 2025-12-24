@@ -2,8 +2,8 @@
 #include "interface.hpp"
 
 GLFWwindow *root = nullptr;
-GLuint shader2D = glCreateProgram(); // 2D stuff
-GLuint shader3D = glCreateProgram(); // 3D stuff
+GLuint shader2D; // 2D stuff
+GLuint shader3D; // 3D stuff
 // Camera
 vec3 cam_pos = vec3(0.0f,0.0f,3.0f);
 vec3 cam_look = vec3(0,0,0);
@@ -31,6 +31,7 @@ void gfx::set_viewport(int x, int y, int w, int h){
 }
 
 void gfx::init(){
+    write_dbg("GFX", "test");
     if (glfwInit()){
         write_dbg("GFX", "GLFW initialisated");
     }
@@ -48,6 +49,9 @@ void gfx::init(){
         write_dbg("GFX", "Failed to initialize GLAD");
         return;
     }
+
+    shader2D = glCreateProgram();
+    shader3D = glCreateProgram();
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

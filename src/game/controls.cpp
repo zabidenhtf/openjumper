@@ -43,28 +43,15 @@ void controls::update(double tick){
 
 void controls::render(){
     int width = 300*gfx::screen_aspect();
-    gfx::viewport(0,0,screen_width, screen_height);
-    gfx::mapscreen(0,0, width,300);
-
-    gfx::set_color(vec4(1,1,1,1));
+    gfx::set_viewport(0,0,screen_width, screen_height);
+    gfx::set_ortho(0,0, width,300);
 
     // pretty line
     for (int i = 0; i<screen_width/64; i++){
-            gfx::enable_texture(data2d::textures[BUTTONS_LINE]);
-        gfx::begin_quads();
-        gfx::draw_2d_quad(vec2(i*64, 300-size/2-4), vec2(64, 8));
-        gfx::end();
+        gfx::enable_texture(data2d::textures[BUTTONS_LINE]);
+        gfx::draw_2d_quad(vec2(i*64, 300-size/2-4), vec2(64, 8),vec4(1,1,1,1));
         gfx::disable_texture();
     }
-
-    // Small animation
-    if (step == 0){
-        gfx::set_color(vec4(1,1,1,step_time * 4));
-    }
-    else{
-        gfx::set_color(vec4(1,1,1,1));
-    }
-
 
     // Making many buttons of dance, and then animate it
     for (int i = 0; i < game->now_dance.level; i++){
@@ -88,15 +75,11 @@ void controls::render(){
             gfx::enable_texture(data2d::textures[BUTTON_SHUFFLE_BACKWARD]);
             break;
         }
-        gfx::begin_quads();
-        gfx::draw_2d_quad(vec2((i*(size+distance) - (time*(size+distance)/speed)) + size/2, 300-size), vec2(size, size)); // TODO: Optimisate
-        gfx::end();
+        gfx::draw_2d_quad(vec2((i*(size+distance) - (time*(size+distance)/speed)) + size/2, 300-size), vec2(size, size),vec4(1,1,1,1)); // TODO: Optimisate
         gfx::disable_texture();
     }
     // helpfull arrow
     gfx::enable_texture(data2d::textures[BUTTON_ARROW]);
-    gfx::begin_quads();
-    gfx::draw_2d_quad(vec2(size/8, 300-size), vec2(size/4, size/4));
-    gfx::end();
+    gfx::draw_2d_quad(vec2(size/8, 300-size), vec2(size/4, size/4),vec4(1,1,1,1));
     gfx::disable_texture();
 }

@@ -30,11 +30,8 @@ void warmup::update(double tick){
 
 void warmup::render(){
     int width = 300*gfx::screen_aspect();
-    gfx::viewport(0,0,screen_width, screen_height);
-    gfx::mapscreen(0,0, width,300);
-
-    // TODO: Make cool animation
-    gfx::set_color(vec4(1,1,1,1));
+    gfx::set_viewport(0,0,screen_width, screen_height);
+    gfx::set_ortho(0,0, width,300);
 
     int state;
 
@@ -55,31 +52,23 @@ void warmup::render(){
     switch (state){
     case 4:
         gfx::enable_texture(data2d::textures[DIGIT3]);
-        gfx::begin_quads();
-        gfx::draw_2d_quad(vec2(width/2-150/2,150-150/2),vec2(150,150));
+        gfx::draw_2d_quad(vec2(width/2-150/2,150-150/2),vec2(150,150), vec4(1,1,1,1));
         gfx::disable_texture();
-        gfx::end();
         break;
     case 3:
         gfx::enable_texture(data2d::textures[DIGIT2]);
-        gfx::begin_quads();
-        gfx::draw_2d_quad(vec2(width/2-150/2,150-150/2),vec2(150,150));
+        gfx::draw_2d_quad(vec2(width/2-150/2,150-150/2),vec2(150,150), vec4(1,1,1,1));
         gfx::disable_texture();
-        gfx::end();
         break;
     case 2:
         gfx::enable_texture(data2d::textures[DIGIT1]);
-        gfx::begin_quads();
-        gfx::draw_2d_quad(vec2(width/2-150/2,150-150/2),vec2(150,150));
+        gfx::draw_2d_quad(vec2(width/2-150/2,150-150/2),vec2(150,150), vec4(1,1,1,1));
         gfx::disable_texture();
-        gfx::end();
         break;
     case 1:
         gfx::enable_texture(data2d::textures[MESSAGE_GO]);
-        gfx::begin_quads();
-        gfx::draw_2d_quad(vec2(width/2-300/2,150-150/2),vec2(300,150)); // fixed size
+        gfx::draw_2d_quad(vec2(width/2-300/2,150-150/2),vec2(300,150), vec4(1,1,1,1)); // fixed size
         gfx::disable_texture();
-        gfx::end();
         break;
     }
 }

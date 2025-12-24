@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
@@ -17,6 +18,12 @@ static int screen_height = 600;
 
 extern vector<int> key_buffer; // keys buffer, it need to save keys
 
+struct vertex2D
+{
+    vec2 pos;
+    vec2 tex;
+};
+
 struct texture{
     GLuint texture_id;
     int width;
@@ -26,23 +33,20 @@ struct texture{
 // Interface GFX
 namespace gfx
 {
-    // TODO: Make imageloader, and quad drawing stuff
-
     GLFWwindow *get_window();
-    void mapscreen(int x, int y, int w, int h);
-    void viewport(int x, int y, int w, int h);
+    void set_ortho(int x, int y, int w, int h);
+    void set_viewport(int x, int y, int w, int h);
     void init();
     void swap();
     void clear(double r, double g, double b);
-    void begin_quads();
-    void set_color(vec4 color);
-    void draw_2d_quad(vec2 pos, vec2 size);
+    void draw_2d_quad(vec2 pos, vec2 size, vec4 color);
     texture load_texture(const string &filename);
     void enable_texture(texture &txture);
     void disable_texture();
-    void end();
     double screen_aspect();
     void kill();
+    // 3D stuff of my 3D Openjumper engine
+    void set_camera(vec3 pos, vec3 look_at, double fov);
 }
 
 // Interface INPUT

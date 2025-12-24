@@ -10,7 +10,7 @@ LODE_PNG_INCLUDE = -Ilib/png
 LODE_PNG_TARGETS = lib/png/lodepng/lodepng.cpp
 
 GLAD_INCLUDE = -Ilib/glad/include
-GLAD_TARGETS = -Ilib/glad/src
+GLAD_TARGETS = lib/glad/src/glad.c
 
 CXX = g++
 CXXFLAGS = -Wall

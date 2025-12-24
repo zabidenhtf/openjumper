@@ -18,7 +18,7 @@ GLFWwindow *gfx::get_window(){
 
 void gfx::set_ortho(int x, int y, int w, int h){
     glUseProgram(shader2D);
-    mat4 proj2D = ortho(x,w,y,h);
+    mat4 proj2D = ortho<float>(x, x + w, y + h, y);
     mat4 view2D = mat4(1.0f);
     glUniformMatrix4fv(glGetUniformLocation(shader2D, "projection"),
                    1, GL_FALSE, value_ptr(proj2D));

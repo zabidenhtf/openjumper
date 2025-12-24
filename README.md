@@ -22,6 +22,7 @@ Thanks for
 -------------
 GLFW - Nice GL lib for C++
 Lodepng - Png loader
+GLM - For graphics mathematics
 
-==============================================
+-------------
 Milestone 0, 2025 by ZABIDEN

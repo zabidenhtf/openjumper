@@ -1,16 +1,12 @@
-Open Jumper - 3D game about jumpstyle dancing
-==============================================
+# Open Jumper - 3D game about jumpstyle dancing
 
-Description
--------------
+## Description
 Open Jumper - 3D game about jumpstyle dancing
 
-Authors
--------------
+## Authors
 ZABIDEN - main developer of game
 
-Controls
--------------
+## Controls
 Space - Jump
 A - Kick left
 D - Kick right
@@ -18,8 +14,7 @@ W - Shuffle forward
 S - Shuffle backward
 E - Flip
 
-Thanks for
--------------
+## Thanks for
 GLFW - Nice GL lib for C++
 Lodepng - Png loader
 GLM - For graphics mathematics

@@ -21,7 +21,6 @@ Space - Jump
 - GLAD - For GL 3.3
 - SimpleIni - For configs
 - Freetype - Fonts render
-And another thanks for
 - GIMP - my graphical editor
 - Blender - 3D editor
 

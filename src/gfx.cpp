@@ -55,8 +55,8 @@ void gfx::init(){
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     // After window init stuff 2D shaders stuff (because GL 3.3) (yep, a bit of AI code here)
-    string vertex2d_shader_source = read_file("assets/shaders/shader2D.vert");
-    string fragment2d_shader_source = read_file("assets/shaders/shader2D.frag");
+    string vertex2d_shader_source = read_file("shaders/shader2D.vert");
+    string fragment2d_shader_source = read_file("shaders/shader2D.frag");
 
     GLuint vertex2d_shader = glCreateShader(GL_VERTEX_SHADER);
     const char* vertex2d_shader_source_cstring = vertex2d_shader_source.c_str();
@@ -73,8 +73,8 @@ void gfx::init(){
 
     glLinkProgram(shader2D);
     // 3D stuff
-    string vertex3d_shader_source = read_file("assets/shaders/shader3D.vert");
-    string fragment3d_shader_source = read_file("assets/shaders/shader3D.frag");
+    string vertex3d_shader_source = read_file("shaders/shader3D.vert");
+    string fragment3d_shader_source = read_file("shaders/shader3D.frag");
 
     GLuint vertex3d_shader = glCreateShader(GL_VERTEX_SHADER);
     const char* vertex3d_shader_source_cstring = vertex3d_shader_source.c_str();

@@ -20,6 +20,10 @@ Space - Jump
 - GLM - For graphics mathematics
 - GLAD - For GL 3.3
 - SimpleIni - For configs
+- Freetype - Fonts render
+And another thanks for
+- GIMP - my graphical editor
+- Blender - 3D editor
 
 ## Building
 ### Windows
@@ -41,6 +45,7 @@ Its similar to windows
 For build you need
 * g++ // it can be preinstalled into your distro
 * libglfw3-dev
+* libfreetype-dev
 * make // too
 <br>
 Use the terminal, and write

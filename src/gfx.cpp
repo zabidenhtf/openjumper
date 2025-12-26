@@ -212,7 +212,7 @@ void gfx::set_camera(vec3 pos, vec3 look_at, double fov){
     cam_look = look_at;
 
     mat4 proj3D = glm::perspective(radians(static_cast<float>(fov)), static_cast<float>(gfx::screen_aspect()), 0.1f, 100.0f);
-    mat4 view3D = lookAt(cam_pos, cam_look, cam_up);
+    mat4 view3D = glm::lookAt(cam_pos, cam_look, cam_up);
 
     glUniformMatrix4fv(glGetUniformLocation(shader3D, "projection"),
                    1, GL_FALSE, glm::value_ptr(proj3D));
@@ -220,14 +220,21 @@ void gfx::set_camera(vec3 pos, vec3 look_at, double fov){
                    1, GL_FALSE, glm::value_ptr(view3D));
 }
 
-void gfx::draw_3d_cube(vec2 pos, vec2 size, vec4 color){
+void gfx::draw_3d_plane(vec3 pos, vec2 size, vec4 color, double pitch, double yaw, double roll){
     glUseProgram(shader3D);
 
     glUniform4f(glGetUniformLocation(shader3D, "uColor"),
                 color.x, color.y, color.z, color.w);
 
-    mat4 model = translate(mat4(1.0f), vec3(pos, 0.0f));
+    float r_pitch = radians(pitch);
+    float r_yaw = radians(yaw);
+    float r_roll = radians(roll);
+
+    mat4 model = translate(mat4(1.0f), pos);
     model = scale(model, vec3(size, 1.0f));
+    model = rotate(model, r_pitch, vec3(0,1,0));
+    model = rotate(model, r_yaw, vec3(1,0,0));
+    model = rotate(model, r_roll, vec3(0,0,1));
     glUniformMatrix4fv(glGetUniformLocation(shader3D, "model"), 1, GL_FALSE, value_ptr(model));
 
     // VAO/VBO/EBO

@@ -50,6 +50,7 @@ int main(){
     data2d::textures_paths.push_back("ui/digit2.png");
     data2d::textures_paths.push_back("ui/digit3.png");
     data2d::textures_paths.push_back("ui/message_go.png");
+    data2d::textures_paths.push_back("ui/message_excellent.png");
     // Action buttons
     data2d::textures_paths.push_back("ui/button_jump.png");
     data2d::textures_paths.push_back("ui/button_flip.png");

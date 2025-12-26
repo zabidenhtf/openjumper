@@ -3,8 +3,11 @@
 
 #define WARMUP_TIME 4
 
+// Components
 #include "warmup.hpp"
 #include "controls.hpp"
+#include "message.hpp"
+
 #include "../scene/scene.hpp"
 
 #include "../interface.hpp"
@@ -44,12 +47,11 @@ public:
     bool game_started = false;
     dance_sequence now_dance;
     int score = 0;
-private:
-    //vector<component> components;
-    // Components
+
     warmup *warmup_component;
     controls *controls_component;
     scene *scene_component;
+    message *message_component;
 };
 
 extern game_core *game;

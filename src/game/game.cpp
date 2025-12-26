@@ -85,6 +85,7 @@ game_core::game_core(){
     warmup_component = new warmup();
     controls_component = new controls();
     scene_component = new scene();
+    message_component = new message();
 
     controls_component->speed = now_dance.beat_speed;
     warmup_component->timer_time = WARMUP_TIME;
@@ -95,6 +96,7 @@ void game_core::update(double tick){
     scene_component->update(tick);
     warmup_component->update(tick);
     controls_component->update(tick);
+    message_component->update(tick);
 
     string buffer = "Now score:" + to_string(score);
     write_dbg("GAME", buffer);

@@ -25,9 +25,13 @@ void controls::update(double tick){
         else{
             press_time = false;
         }
+
         if (!key_buffer.empty()){
             if (key_buffer.back() == dance_binds[game->now_dance.movements[step]] && press_time == true){
                 //write("Pressed");
+                if (step%5 == 0){
+                    game->message_component->spawn(MESSAGE_EXCELLENT,1);
+                }
                 press_time = false;
                 can_press = false;
                 game->score += 20;

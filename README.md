@@ -4,7 +4,7 @@
 Open Jumper - 3D game about jumpstyle dancing
 
 ## Authors
-ZABIDEN - main developer of game
+Mykyta Polishyk - main developer of game
 
 ## Controls
 Space - Jump
@@ -56,4 +56,4 @@ make PLATFORM=LINUX
 `
 
 -------------
-Milestone 0, 2025 by ZABIDEN
+Milestone 0, 2025 by ZABIDEN (or Mykyta Polishyk)

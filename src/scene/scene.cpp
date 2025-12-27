@@ -24,7 +24,7 @@ void scene::render(){
     gfx::enable_texture(data2d::textures[NULL_TEX]);
     gfx::draw_2d_quad(vec2(0, 0), vec2(width, 300),vec4(1,1,1,1));
 
-    gfx::set_camera(vec3(cam_pos_x,3,cam_pos_z), vec3(0,0,0), 90);
+    gfx::set_camera(vec3(cam_pos_x,3,cam_pos_z), vec3(0,0,0), fov);
     gfx::draw_3d_plane(vec3(-1.5,0,-1.5), vec2(3,3),vec4(0,0,0,1), 0,90,0);
     gfx::draw_3d_box(vec3(0,0,0), vec3(1,2,1), vec4(0.75,0.75,0.75,1));
 

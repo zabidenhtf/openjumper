@@ -41,6 +41,7 @@ int main(){
 
     screen_width = stoi(string(config::load_data("Options", "screen_width", "800")));
     screen_height = stoi(string(config::load_data("Options", "screen_height", "600")));
+    fov = stoi(string(config::load_data("Options", "fov", "90")));
 
     gfx::init();
     input::init(gfx::get_window());

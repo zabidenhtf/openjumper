@@ -3,6 +3,8 @@
 
 scene_core::scene_core(){
     write_dbg("SCENE", "Scene initialisated");
+
+    player = new jumper_player();
 }
 
 void scene_core::update(double tick){
@@ -13,6 +15,7 @@ void scene_core::update(double tick){
     cam_pos_z = radius * sin(angle);
 
     render();
+    player->update(tick);
 }
 
 void scene_core::render(){
@@ -26,7 +29,5 @@ void scene_core::render(){
 
     gfx::set_camera(vec3(cam_pos_x,2,cam_pos_z), vec3(0,0,0), fov);
     gfx::draw_3d_plane(vec3(0,0,0), vec2(5,5),vec4(0,0,0,1), 0,90,0);
-    gfx::draw_3d_box(vec3(0,1,0), vec3(1,2,1), vec4(0.75,0.75,0.75,1));
 
-    gfx::disable_texture();
 }

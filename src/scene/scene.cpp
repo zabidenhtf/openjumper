@@ -6,7 +6,7 @@ scene_core::scene_core(){
 }
 
 void scene_core::update(double tick){
-    static float radius = 3.0f;
+    static float radius = 4.0f;
     static float angle = 0.0f;
     angle += tick;
     cam_pos_x = radius * cos(angle);
@@ -24,9 +24,9 @@ void scene_core::render(){
     gfx::enable_texture(data2d::textures[NULL_TEX]);
     gfx::draw_2d_quad(vec2(0, 0), vec2(width, 300),vec4(1,1,1,1));
 
-    gfx::set_camera(vec3(cam_pos_x,3,cam_pos_z), vec3(0,0,0), fov);
-    gfx::draw_3d_plane(vec3(-1.5,0,-1.5), vec2(3,3),vec4(0,0,0,1), 0,90,0);
-    gfx::draw_3d_box(vec3(0,0,0), vec3(1,2,1), vec4(0.75,0.75,0.75,1));
+    gfx::set_camera(vec3(cam_pos_x,2,cam_pos_z), vec3(0,0,0), fov);
+    gfx::draw_3d_plane(vec3(0,0,0), vec2(5,5),vec4(0,0,0,1), 0,90,0);
+    gfx::draw_3d_box(vec3(0,1,0), vec3(1,2,1), vec4(0.75,0.75,0.75,1));
 
     gfx::disable_texture();
 }

@@ -1,1 +1,1 @@
-mingw32-make PLATFORM=WINDOWS
+mingw32-make PLATFORM=WIN64

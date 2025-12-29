@@ -13,7 +13,9 @@ public:
     virtual void update(double tick);
     virtual void render();
     bool active = true;
+    int state = 4;
     double time = 0;
+    double state_time = 0;
     double timer_time;
 };
 

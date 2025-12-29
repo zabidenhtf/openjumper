@@ -1,4 +1,5 @@
 #include "interface.hpp"
+#include "data.hpp"
 
 GLFWwindow *root = nullptr;
 GLuint shader2D; // 2D stuff
@@ -286,4 +287,23 @@ void gfx::draw_3d_box(vec3 pos, vec3 size, vec4 color) {
     draw_3d_plane(pos + vec3(0,0,-half.z), vec2(size.x, size.y), vec4(1,1,0,1), 0, 0, 0); // back
     draw_3d_plane(pos + vec3(-half.x,0,0), vec2(size.z, size.y), vec4(0,1,0,1), 90, 0, 0); // left
     draw_3d_plane(pos + vec3(half.x,0,0), vec2(size.z, size.y), vec4(0,1,1,1), 90, 0, 0); // right
+}
+
+void gfx::draw_skybox(){
+    vec3 size = vec3(16,16,16);
+    vec3 half = size * 0.5f;
+
+    enable_texture(data2d::textures[SKYBOX_DOWN]);
+    draw_3d_plane(cam_pos + vec3(0,-half.y,0), vec2(size.x, size.z), vec4(1,1,1,1), 0, 90, 180); // bottom
+    enable_texture(data2d::textures[SKYBOX_UP]);
+    draw_3d_plane(cam_pos + vec3(0,half.y,0), vec2(size.x, size.z), vec4(1,1,1,1), 0, 90, 180); // top
+    enable_texture(data2d::textures[SKYBOX_FRONT]);
+    draw_3d_plane(cam_pos + vec3(0,0,half.z), vec2(size.x, size.y), vec4(1,1,1,1), 0, 0, 180); // front
+    enable_texture(data2d::textures[SKYBOX_BACK]);
+    draw_3d_plane(cam_pos + vec3(0,0,-half.z), vec2(size.x, size.y), vec4(1,1,1,1), 0, 0, 180); // back
+    enable_texture(data2d::textures[SKYBOX_LEFT]);
+    draw_3d_plane(cam_pos + vec3(-half.x,0,0), vec2(size.z, size.y), vec4(1,1,1,1), 90, 0, 180); // left
+    enable_texture(data2d::textures[SKYBOX_RIGHT]);
+    draw_3d_plane(cam_pos + vec3(half.x,0,0), vec2(size.z, size.y), vec4(1,1,1,1), 90, 0, 180); // right
+    disable_texture();
 }

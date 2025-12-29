@@ -1,9 +1,9 @@
 #ifndef SCENE_JUMPER_H
 #define SCENE_JUMPER_H
 
-#include "../interface.hpp"
-#include "../system.hpp"
-#include "entity.hpp"
+#include "../../interface.hpp"
+#include "../../system.hpp"
+#include "../entity.hpp"
 
 class jumper_player : public entity{
 public:

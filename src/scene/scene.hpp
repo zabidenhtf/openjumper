@@ -6,19 +6,21 @@
 #include "../includes.hpp"
 
 // entities
-#include "jumper.hpp"
+#include "entities/jumper.hpp"
+
+// components
+#include "environment.hpp"
 
 class scene_core{ // There is all 3D objects
 public:
     scene_core();
     void reset(){return;};
     void update(double tick);
-    void render();
 private:
-    // For light debug and render debug
-    float cam_pos_x = 0;
-    float cam_pos_z = 0;
     jumper_player *player;
+    environment *environment_component;
 };
+
+extern scene_core* scene;
 
 #endif // GAME_SCENE_H

@@ -4,9 +4,9 @@
 #define WARMUP_TIME 4
 
 // Components
-#include "warmup.hpp"
-#include "controls.hpp"
-#include "message.hpp"
+#include "components/warmup.hpp"
+#include "components/controls.hpp"
+#include "components/message.hpp"
 
 #include "../interface.hpp"
 #include "../system.hpp"

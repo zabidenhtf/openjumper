@@ -1,33 +1,13 @@
 #include "scene.hpp"
-#include "../data.hpp"
 
 scene_core::scene_core(){
     write_dbg("SCENE", "Scene initialisated");
 
     player = new jumper_player();
+    environment_component = new environment();
 }
 
 void scene_core::update(double tick){
-    static float radius = 4.0f;
-    static float angle = 0.0f;
-    angle += tick;
-    cam_pos_x = radius * cos(angle);
-    cam_pos_z = radius * sin(angle);
-
-    render();
+    environment_component->update(tick);
     player->update(tick);
-}
-
-void scene_core::render(){
-    int width = 300*gfx::screen_aspect();
-
-    gfx::set_viewport(0,0,screen_width, screen_height);
-    gfx::set_ortho(0,0, width,300);
-
-    gfx::enable_texture(data2d::textures[NULL_TEX]);
-    gfx::draw_2d_quad(vec2(0, 0), vec2(width, 300),vec4(1,1,1,1));
-
-    gfx::set_camera(vec3(cam_pos_x,2,cam_pos_z), vec3(0,0,0), fov);
-    gfx::draw_3d_plane(vec3(0,0,0), vec2(5,5),vec4(0,0,0,1), 0,90,0);
-
 }

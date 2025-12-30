@@ -1,3 +1,4 @@
+Warning, game now indev
 # Open Jumper - 3D game about jumpstyle dancing
 
 ## Description

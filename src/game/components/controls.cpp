@@ -58,8 +58,8 @@ void controls::render(){
     }
 
     // Making many buttons of dance, and then animate it
-    for (int i = 0; i < game->now_dance.level; i++){
-        switch (game->now_dance.movements[i]){
+    for (int i = 0; i < width/(distance+size)+1; i++){ // Optimisated
+        switch (game->now_dance.movements[i+step]){
         case JUMP:
             gfx::enable_texture(data2d::textures[BUTTON_JUMP]);
             break;
@@ -79,7 +79,7 @@ void controls::render(){
             gfx::enable_texture(data2d::textures[BUTTON_SHUFFLE_BACKWARD]);
             break;
         }
-        gfx::draw_2d_quad(vec2((i*(size+distance) - (time*(size+distance)/speed)) + size/2, 300-size), vec2(size, size),vec4(1,1,1,1)); // TODO: Optimisate
+        gfx::draw_2d_quad(vec2((i*(size+distance) - (step_time*(size+distance)/speed)) + size/2, 300-size), vec2(size, size),vec4(1,1,1,1));
         gfx::disable_texture();
     }
     // helpfull arrow

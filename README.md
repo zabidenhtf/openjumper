@@ -56,4 +56,5 @@ make PLATFORM=LINUX
 `
 
 -------------
-Milestone 0, 2025 by ZABIDEN (or Mykyta Polishyk)
+Milestone 0
+Copyright (C) 2025 Mykyta Polishyk

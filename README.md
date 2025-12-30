@@ -58,3 +58,6 @@ make PLATFORM=LINUX
 -------------
 Milestone 0
 Copyright (C) 2025 Mykyta Polishyk
+
+This project is licensed under the GNU General Public License v3.0 or later.
+See the LICENSE file for details.

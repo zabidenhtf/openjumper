@@ -33,6 +33,8 @@ void gfx::set_viewport(int x, int y, int w, int h){
 
 void gfx::init(){
     // Loading window data using config
+    string buffer = "Zlib version - " + string(zlibVersion());
+    write_dbg("GFX", buffer);
     if (glfwInit()){
         write_dbg("GFX", "GLFW initialisated");
     }

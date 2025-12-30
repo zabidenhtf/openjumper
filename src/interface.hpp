@@ -6,6 +6,7 @@
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 #include <lodepng/lodepng.h>
+#include <zlib.h>
 
 #include "system.hpp"
 #include "includes.hpp"

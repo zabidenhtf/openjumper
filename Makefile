@@ -1,5 +1,6 @@
 TARGETS = $(wildcard src/*.cpp)
 MENU_TARGETS = $(wildcard src/menu/*.cpp)
+MENU_COMPONENTS_TARGETS = $(wildcard src/menu/components/*.cpp)
 
 GLFW_INCLUDE = -Ilib/glfw/include
 GLFW_LIB_WIN64 = -Llib/glfw/lib -lglfw3 -lgdi32 -lopengl32
@@ -38,7 +39,7 @@ EXEC = openjumper
 all:
 ifdef PLATFORM
 ifeq ($(PLATFORM),WIN64)
-	$(CXX) $(TARGETS) $(MENU_TARGETS) \
+	$(CXX) $(TARGETS) $(MENU_TARGETS) $(MENU_COMPONENTS_TARGETS) \
 	$(CXXFLAGS) \
 	$(GLFW_INCLUDE) $(GLFW_LIB_WIN64) \
 	$(FREETYPE_INCLUDE) $(FREETYPE_LIB_WIN64) \
@@ -50,7 +51,7 @@ ifeq ($(PLATFORM),WIN64)
 	$(SIMPLE_INI_INCLUDE) \
 	-o $(EXEC)
 else ifeq ($(PLATFORM),WIN32)
-	$(CXX) $(TARGETS) $(MENU_TARGETS) \
+	$(CXX) $(TARGETS) $(MENU_TARGETS) $(MENU_COMPONENTS_TARGETS) \
 	$(CXXFLAGS) \
 	$(GLFW_INCLUDE) $(GLFW_LIB_WIN32) \
 	$(FREETYPE_INCLUDE) $(FREETYPE_LIB_WIN32) \
@@ -60,7 +61,7 @@ else ifeq ($(PLATFORM),WIN32)
 	$(SIMPLE_INI_INCLUDE) \
 	-o $(EXEC)
 else ifeq ($(PLATFORM),LINUX)
-	$(CXX) $(TARGETS) $(MENU_TARGETS) \
+	$(CXX) $(TARGETS) $(MENU_TARGETS) $(MENU_COMPONENTS_TARGETS) \
 	$(CXXFLAGS) \
 	$(GLFW_INCLUDE) $(GLFW_LIB_LINUX) \
 	$(ZLIB_INCLUDE) $(ZLIB_LIB_LINUX) \

@@ -5,6 +5,8 @@
 #include "../system.hpp"
 #include "../includes.hpp"
 
+#include "components/logo_renderer.hpp"
+
 enum MENU_STATES{
     MENU_MAIN,
     MENU_NEWGAME
@@ -16,6 +18,7 @@ public:
     void update(double tick);
 private:
     int button_selected_now;
+    menu_logo *menu_logo_component;
 
 };
 

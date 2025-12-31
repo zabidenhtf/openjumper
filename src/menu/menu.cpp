@@ -3,6 +3,7 @@
 game_menu_core::game_menu_core(){
     write_dbg("MENU", "Menu initialisated");
     button_selected_now = 0;
+    menu_logo_component = new menu_logo();
 }
 
 void game_menu_core::update(double tick){
@@ -19,4 +20,6 @@ void game_menu_core::update(double tick){
                 break;
             }
     }
+
+    menu_logo_component->update(tick);
 }

@@ -1,9 +1,9 @@
 #ifndef GAME_MENU_H
 #define GAME_MENU_H
 
-#include "../interface.hpp"
-#include "../system.hpp"
-#include "../includes.hpp"
+#include "interface.hpp"
+#include "system.hpp"
+#include "includes.hpp"
 
 #include "components/logo_renderer.hpp"
 

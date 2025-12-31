@@ -1,5 +1,5 @@
 #include "logo_renderer.hpp"
-#include "../../data.hpp"
+#include "data.hpp"
 
 menu_logo::menu_logo(){
     write_dbg("MENU LOGO", "Menu logo initialisated");

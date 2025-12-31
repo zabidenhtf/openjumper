@@ -6,7 +6,9 @@
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 #include <lodepng/lodepng.h>
-#include <zlib.h>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
 #include "system.hpp"
 #include "includes.hpp"

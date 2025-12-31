@@ -9,6 +9,8 @@ vec3 cam_pos = vec3(0.0f,0.0f,3.0f);
 vec3 cam_look = vec3(0,0,0);
 vec3 cam_up = vec3(0,1,0);
 
+Assimp::Importer importer; // Now assimp do nothing, but im fix it
+
 GLuint quadVAO, quadVBO, quadEBO;
 GLuint quad3dVAO, quad3dVBO, quad3dEBO;
 
@@ -32,9 +34,6 @@ void gfx::set_viewport(int x, int y, int w, int h){
 }
 
 void gfx::init(){
-    // Loading window data using config
-    string buffer = "Zlib version - " + string(zlibVersion());
-    write_dbg("GFX", buffer);
     if (glfwInit()){
         write_dbg("GFX", "GLFW initialisated");
     }

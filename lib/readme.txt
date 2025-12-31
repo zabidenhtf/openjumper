@@ -1,0 +1,1 @@
+Warning! There is third-party libs. It using to build project.

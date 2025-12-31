@@ -1,12 +1,15 @@
 #include "interface.hpp"
 #include "system.hpp"
 #include "data.hpp"
+#include "menu/menu.hpp"
 #include "includes.hpp"
 
 // Target fps and another configs
 const float FPS = 60.00f;
 const float frame_time = 1.0 / FPS;
 double last_time = glfwGetTime();
+
+game_menu_core* menu = nullptr;
 
 namespace data2d {
     vector<string> textures_paths;
@@ -45,7 +48,7 @@ int main(){
     gfx::blend_normal();
     input::init(gfx::get_window());
     // Load textures
-    data2d::textures_paths.push_back("logo.png");
+    data2d::textures_paths.push_back("menu/logo.png");
     data2d::textures_paths.push_back("ui/digit1.png");
     data2d::textures_paths.push_back("ui/digit2.png");
     data2d::textures_paths.push_back("ui/digit3.png");
@@ -70,6 +73,8 @@ int main(){
     data2d::textures_paths.push_back("sky/right.png");
     data2d::load_textures();
 
+    menu = new game_menu_core();
+
     while(!glfwWindowShouldClose(gfx::get_window())){
         gfx::clear(0,0,0);
         double frame_start = glfwGetTime();
@@ -77,7 +82,7 @@ int main(){
         double delta = frame_start - last_time;
         last_time = frame_start;
 
-        // Content
+        menu->update(delta);
 
         key_buffer.clear();
         gfx::swap();

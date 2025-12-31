@@ -13,6 +13,8 @@ public:
     virtual void update(double tick);
     virtual void render();
 
+    void draw_action_button(vec2 pos);
+
     double time=0;
     double step_time=0;
     double speed = 0.5;

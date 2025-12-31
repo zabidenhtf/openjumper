@@ -79,7 +79,9 @@ void controls::render(){
             gfx::enable_texture(data2d::textures[BUTTON_SHUFFLE_BACKWARD]);
             break;
         }
-        gfx::draw_2d_quad(vec2((i*(size+distance) - (step_time*(size+distance)/speed)) + size/2, 300-size), vec2(size, size),vec4(1,1,1,1));
+        float x = i*(size+distance);
+        float time_x = step_time*(size+distance)/speed;
+        gfx::draw_2d_quad(vec2(x - time_x + size/2, 300-size), vec2(size, size),vec4(1,1,1,1));
         gfx::disable_texture();
     }
     // helpfull arrow

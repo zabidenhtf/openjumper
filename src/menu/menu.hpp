@@ -6,6 +6,7 @@
 #include "includes.hpp"
 
 #include "components/logo_renderer.hpp"
+#include "components/background.hpp"
 
 enum MENU_STATES{
     MENU_MAIN,
@@ -17,9 +18,11 @@ public:
     game_menu_core();
     void update(double tick);
 private:
+    int button_selector_max;
+    int button_selector_min;
     int button_selected_now;
     menu_logo *menu_logo_component;
-
+    menu_background *menu_background_component;
 };
 
 extern game_menu_core* menu;

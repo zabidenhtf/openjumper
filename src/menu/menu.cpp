@@ -2,7 +2,7 @@
 
 game_menu_core::game_menu_core(){
     write_dbg("MENU", "Menu initialisated");
-    button_selector_max = 5;
+    button_selector_max = 3;
     button_selector_min = 0;
     button_selected_now = button_selector_min;
     menu_logo_component = new menu_logo();
@@ -30,6 +30,7 @@ void game_menu_core::update(double tick){
                 break;
             }
     }
+    // Updating all stuff
     menu_background_component->update(tick);
     menu_logo_component->update(tick);
 }

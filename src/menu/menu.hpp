@@ -8,6 +8,13 @@
 #include "components/logo_renderer.hpp"
 #include "components/background.hpp"
 
+enum{
+    PLAY,
+    CREDITS,
+    SETTINGS,
+    EXIT
+};
+
 enum MENU_STATES{
     MENU_MAIN,
     MENU_NEWGAME

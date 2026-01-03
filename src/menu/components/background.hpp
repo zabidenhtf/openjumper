@@ -12,6 +12,9 @@ public:
     virtual void reset(){return;};
     virtual void update(double tick);
     virtual void render();
+private:
+    int tile_width;
+    int tile_height;
 };
 
 #endif // MENU_BACKGROUND_H

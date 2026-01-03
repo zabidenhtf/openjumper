@@ -7,6 +7,7 @@
 
 #include "components/logo_renderer.hpp"
 #include "components/background.hpp"
+#include "components/selector.hpp"
 
 enum{
     PLAY,
@@ -25,9 +26,7 @@ public:
     game_menu_core();
     void update(double tick);
 private:
-    int button_selector_max;
-    int button_selector_min;
-    int button_selected_now;
+    menu_selector *menu_selector_component;
     menu_logo *menu_logo_component;
     menu_background *menu_background_component;
 };

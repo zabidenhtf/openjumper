@@ -8,6 +8,7 @@
 #include "components/logo_renderer.hpp"
 #include "components/background.hpp"
 #include "components/selector.hpp"
+#include "environment.hpp"
 
 enum{
     PLAY,
@@ -26,6 +27,7 @@ public:
     game_menu_core();
     void update(double tick);
 private:
+    menu_environment *menu_environment_component;
     menu_selector *menu_selector_component;
     menu_logo *menu_logo_component;
     menu_background *menu_background_component;

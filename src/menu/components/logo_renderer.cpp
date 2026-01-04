@@ -19,6 +19,6 @@ void menu_logo::render(){
     float i_width = i_height*image_aspect;
 
     gfx::enable_texture(data2d::textures[LOGO]);
-    gfx::draw_2d_quad(vec2((width-i_width)/2,15), vec2(i_width,i_height), vec4(1,1,1,1));
+    gfx::draw_2d_quad(vec2(8,15), vec2(i_width,i_height), vec4(1,1,1,1));
     gfx::disable_texture();
 }

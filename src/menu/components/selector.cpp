@@ -44,7 +44,7 @@ void menu_selector::render(){
     float button_height = 24;
     float frame_height = (button_height+8)*(button_selector_max+1);
 
-    vec2 frame_pos = vec2(width-frame_width*2,128);
+    vec2 frame_pos = vec2(16,128);
 
     gfx::enable_texture(data2d::textures[NULL_TEX]);
     // Frame with excellent borders

@@ -14,3 +14,12 @@ void input::callback(GLFWwindow* window, int key, int scancode, int action, int 
 void input::init(GLFWwindow* window){
     glfwSetKeyCallback(window, callback);
 }
+
+bool input::button_pressed(int key){
+    if (!key_buffer.empty()){
+        if (key_buffer.back() == key){
+            return true;
+        }
+    }
+    return false;
+}

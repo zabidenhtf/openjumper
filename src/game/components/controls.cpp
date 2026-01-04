@@ -26,16 +26,14 @@ void game_controls::update(double tick){
             press_time = false;
         }
 
-        if (!key_buffer.empty()){
-            if (key_buffer.back() == dance_binds[game->now_dance.movements[step]] && press_time == true){
-                //write("Pressed");
-                if (step%5 == 0){ // TODO: add better combo system
-                    game->message->spawn(MESSAGE_EXCELLENT);
-                }
-                press_time = false;
-                can_press = false;
-                game->score += 20;
+        if (input::button_pressed(dance_binds[game->now_dance.movements[step]]) && press_time == true){
+            //write("Pressed");
+            if (step%5 == 0){ // TODO: add better combo system
+                game->message->spawn(MESSAGE_EXCELLENT);
             }
+            press_time = false;
+            can_press = false;
+            game->score += 20;
         }
 
         if (step >= game->now_dance.level){

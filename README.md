@@ -8,7 +8,7 @@ Open Jumper - 3D game about jumpstyle dancing
 Mykyta Polishyk - main developer of game
 
 ## Controls
-Space - Jump
+- Space - Jump
 - A - Kick left
 - D - Kick right
 - W - Shuffle forward
@@ -23,6 +23,7 @@ Space - Jump
 - SimpleIni - For configs
 - Freetype - Fonts render
 - GIMP - my graphical editor
+- ASSIMP - for 3d models loading 
 - Blender - 3D editor
 
 ## Building
@@ -46,6 +47,7 @@ For build you need
 * g++ // it can be preinstalled into your distro
 * libglfw3-dev
 * libfreetype-dev
+* libassimp-dev
 * make // too
 <br>
 Use the terminal, and write

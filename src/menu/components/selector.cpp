@@ -1,4 +1,5 @@
 #include "selector.hpp"
+#include "data.hpp"
 
 menu_selector::menu_selector(){
     write_dbg("SELECTOR", "Selector initialisated");
@@ -36,5 +37,33 @@ void menu_selector::update(double tick){
 }
 
 void menu_selector::render(){
-    return;
+    int width = 300*gfx::screen_aspect();
+    gfx::set_viewport(0,0,screen_width, screen_height);
+    gfx::set_ortho(0,0, width,300);
+    float frame_width = width/3;
+    float button_height = 24;
+    float frame_height = (button_height+8)*(button_selector_max+1);
+
+    vec2 frame_pos = vec2(width-frame_width*2,128);
+
+    gfx::enable_texture(data2d::textures[NULL_TEX]);
+    // Frame with excellent borders
+    gfx::draw_2d_quad(frame_pos - vec2(1,1), vec2(frame_width+2,frame_height+2), vec4(0,0,0,1));
+    gfx::draw_2d_quad(frame_pos, vec2(frame_width,frame_height), vec4(1,1,1,1));
+    gfx::disable_texture();
+
+    for (int i = 0; i < button_selector_max + 1; i++){
+        // buttons
+        gfx::enable_texture(data2d::textures[NULL_TEX]);
+        vec4 color;
+        // If selected change color
+        if (i == button_selected_now){
+            color = vec4(1,0,0,1);
+        }
+        else{
+            color = vec4(0.5,0.5,0.5,1);
+        }
+        gfx::draw_2d_quad(frame_pos + vec2(2, 4+(i*(button_height+8))), vec2(frame_width-4,button_height), color);
+        gfx::disable_texture();
+    }
 }

@@ -3,6 +3,7 @@
 #include "data.hpp"
 #include "game/game.hpp"
 #include "scene/scene.hpp"
+#include "menu/menu.hpp"
 #include "includes.hpp"
 
 // Target fps and another configs
@@ -10,6 +11,7 @@ const float FPS = 60.00f;
 const float frame_time = 1.0 / FPS;
 double last_time = glfwGetTime();
 
+menu_core* menu = nullptr;
 game_core* game = nullptr;
 scene_core* scene = nullptr;
 
@@ -73,10 +75,14 @@ int main(){
     data2d::textures_paths.push_back("sky/back.png");
     data2d::textures_paths.push_back("sky/left.png");
     data2d::textures_paths.push_back("sky/right.png");
+
+    data2d::textures_paths.push_back("menu/background_tile.png");
+
     data2d::load_textures();
 
-    scene = new scene_core();
-    game = new game_core();
+    //scene = new scene_core();
+    //game = new game_core();
+    menu = new menu_core();
 
     while(!glfwWindowShouldClose(gfx::get_window())){
         gfx::clear(0,0,0);
@@ -85,17 +91,19 @@ int main(){
         double delta = frame_start - last_time;
         last_time = frame_start;
 
-        scene->update(delta);
-        game->update(delta);
+        //scene->update(delta);
+        //game->update(delta);
+        menu->update(delta);
 
+        // Debuging stuff
         if (input::button_pressed(GLFW_KEY_ESCAPE)){
             gfx::kill();
         }
 
-        if (input::button_pressed(GLFW_KEY_ENTER)){
-            game->reset();
-            scene->reset();
-        }
+        //if (input::button_pressed(GLFW_KEY_ENTER)){
+        //    game->reset();
+        //    scene->reset();
+        //}
 
         key_buffer.clear();
         gfx::swap();

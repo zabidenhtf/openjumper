@@ -34,7 +34,10 @@ enum{
     SKYBOX_FRONT,
     SKYBOX_BACK,
     SKYBOX_LEFT,
-    SKYBOX_RIGHT
+    SKYBOX_RIGHT,
+
+    // Menu textures
+    BACKGROUND_TILE
 };
 
 #endif // DATA_H

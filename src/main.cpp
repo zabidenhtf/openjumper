@@ -92,6 +92,11 @@ int main(){
             gfx::kill();
         }
 
+        if (input::button_pressed(GLFW_KEY_ENTER)){
+            game->reset();
+            scene->reset();
+        }
+
         key_buffer.clear();
         gfx::swap();
 

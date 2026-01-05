@@ -3,32 +3,34 @@
 
 entity_jumper_player::entity_jumper_player(){
     write_dbg("JUMPER", "Added to scene");
-    direction = 45;
-    reset();
 }
 
 void entity_jumper_player::reset(){
     pos = vec3(0,0,0);
+    direction = 45;
 }
 
-void entity_jumper_player::move_forward(double tick){
-    pos += vec3(cos(direction)*tick,0,sin(direction) * tick);
+void entity_jumper_player::move_forward(double tick, double speed){
+    pos += vec3(cos(direction)*tick*speed,0,sin(direction)*tick*speed);
 }
 
-void entity_jumper_player::move_backward(double tick){
-    pos += vec3(cos(direction)*-tick,0,sin(direction) * -tick);
+void entity_jumper_player::move_backward(double tick, double speed){
+    pos += vec3(cos(direction)*-tick*speed,0,sin(direction)*-tick*speed);
 }
 
 void entity_jumper_player::update(double tick){
     DANCE_MOVEMENTS move_now = game->now_dance.movements[game->controls->step];
     if (move_now == SHUFFLE_FORWARD){ // Check movement's now
-        move_forward(tick);
+        move_forward(tick, 3);
     }
     else if (move_now == SHUFFLE_BACKWARD){
-        move_backward(tick);
+        move_backward(tick, 2);
+    }
+    else if (move_now == FLIP){
+        direction += randint(45,360);
     }
     else{
-        // Do nothing (on some time)
+        // Do nothing
     }
     render();
 }

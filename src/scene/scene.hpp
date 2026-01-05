@@ -14,7 +14,7 @@
 class scene_core{ // There is all 3D objects
 public:
     scene_core();
-    void reset(){return;};
+    void reset();
     void update(double tick);
     vec2 scene_size;
     vec2 scene_pos;

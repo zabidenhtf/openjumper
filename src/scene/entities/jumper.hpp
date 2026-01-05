@@ -12,8 +12,8 @@ public:
     virtual void update(double tick);
     virtual void render();
 private:
-    void move_forward(double tick);
-    void move_backward(double tick);
+    void move_forward(double tick, double speed);
+    void move_backward(double tick, double speed);
     vec3 pos;
     float direction;
 };

@@ -1,22 +1,31 @@
 #include "environment.hpp"
 #include "scene.hpp"
+#include "../game/game.hpp"
 #include "data.hpp"
 
 scene_environment::scene_environment(){
     write_dbg("ENVIRONMENT", "Environment initialisated");
-    reset();
 }
 
 void scene_environment::reset(){
-    return;
+    cam_pos_x = 4;
+    cam_pos_z = 4;
 }
 
 void scene_environment::update(double tick){
-    static float radius = 4.0f;
-    static float angle = 0.0f;
-    angle += tick;
-    cam_pos_x = radius * cos(angle);
-    cam_pos_z = radius * sin(angle);
+    // When warmup spin camera
+    if (game->game_started == false){
+        static float radius = 4.0f;
+        static float angle = 0.0f;
+        angle += tick;
+        cam_pos_x = radius * cos(angle);
+        cam_pos_z = radius * sin(angle);
+    }
+    else{
+        cam_pos_x = 4;
+        cam_pos_z = 4;
+    }
+
     render();
 }
 void scene_environment::render(){

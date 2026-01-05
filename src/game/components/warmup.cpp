@@ -5,12 +5,13 @@
 
 game_warmup::game_warmup(){
     write_dbg("WARMUP","Timer initialisated");
-    reset();
 }
 
 void game_warmup::reset(){
     write_dbg("WARMUP","Timer reset");
+    state = 4;
     time = 0;
+    state_time = 0;
     active = true;
 }
 

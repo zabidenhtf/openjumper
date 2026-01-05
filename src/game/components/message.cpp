@@ -8,6 +8,7 @@ game_message::game_message(){
 void game_message::spawn(int txture){
     this->txture = txture;
     this->active = true;
+    this->time = 0;
 }
 
 void game_message::update(double tick){

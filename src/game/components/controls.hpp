@@ -9,16 +9,16 @@ class game_controls : public component
 {
 public:
     game_controls();
-    virtual void reset(){return;};
+    virtual void reset();
     virtual void update(double tick);
     virtual void render();
 
     void draw_action_button(vec2 pos);
 
-    double time=0;
-    double step_time=0;
-    double speed = 0.5;
-    int step = 0;
+    double time;
+    double step_time;
+    double speed;
+    int step;
 private:
     int size = screen_height/12;
     int distance = 35;

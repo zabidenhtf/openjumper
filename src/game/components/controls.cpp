@@ -6,6 +6,12 @@ game_controls::game_controls(){
     write_dbg("CONTROLS","initialisated");
 }
 
+void game_controls::reset(){
+    time=0;
+    step_time=0;
+    speed = 0.5;
+    step = 0;
+}
 
 void game_controls::update(double tick){
     if (game->game_started == true){

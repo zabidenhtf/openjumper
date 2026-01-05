@@ -79,13 +79,20 @@ dance_sequence game_core::generate_dance(DANCE_LEVELS level){
 game_core::game_core(){
     write_dbg("GAME", "game launched");
 
-    now_dance = generate_dance(levels_list[randint(0,2)]);
-
     // Initialisating all components
     warmup = new game_warmup();
     controls = new game_controls();
     message = new game_message();
+    reset();
+}
 
+void game_core::reset(){
+    score = 0;
+    game_started = false;
+    now_dance = generate_dance(levels_list[randint(0,2)]);
+    warmup->reset();
+    controls->reset();
+    message->reset();
     controls->speed = now_dance.beat_speed;
     warmup->timer_time = WARMUP_TIME;
 }

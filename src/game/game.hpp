@@ -41,8 +41,9 @@ class game_core{
 public:
     dance_sequence generate_dance(DANCE_LEVELS level);
     game_core();
+    void reset();
     void update(double tick);
-    bool game_started = false;
+    bool game_started;
     dance_sequence now_dance;
     int score = 0;
 

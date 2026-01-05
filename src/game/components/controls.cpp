@@ -11,6 +11,8 @@ void game_controls::reset(){
     step_time=0;
     speed = 0.5;
     step = 0;
+    combo_step = 0;
+    combo = true;
 }
 
 void game_controls::update(double tick){
@@ -31,15 +33,34 @@ void game_controls::update(double tick){
         else{
             press_time = false;
         }
+        if (press_time == true){
+            if (input::button_pressed(dance_binds[game->now_dance.movements[step]])){
+                //write("Pressed");
+                if (combo == true){
+                    game->message->spawn(MESSAGE_EXCELLENT);
+                }
+                switch (combo){
+                    case true:
+                        game->score += 40;
+                        break;
+                    case false:
+                        game->score += 20;
+                        break;
+                }
 
-        if (input::button_pressed(dance_binds[game->now_dance.movements[step]]) && press_time == true){
-            //write("Pressed");
-            if (step%5 == 0){ // TODO: add better combo system
-                game->message->spawn(MESSAGE_EXCELLENT);
+                if (combo_step == 5){
+                    combo = true;
+                }
+                else{
+                    combo_step ++;
+                }
+                press_time = false;
+                can_press = false;
             }
-            press_time = false;
-            can_press = false;
-            game->score += 20;
+            else{
+                combo_step = 0;
+                combo = false;
+            }
         }
 
         if (step >= game->now_dance.level){

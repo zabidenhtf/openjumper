@@ -24,6 +24,8 @@ private:
     int distance = 35;
     bool press_time;
     bool can_press = true;
+    bool combo;
+    int combo_step;
 };
 
 #endif // GAME_CONTROLS_H

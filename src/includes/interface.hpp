@@ -75,6 +75,7 @@ namespace input
     void init(GLFWwindow* window);
     bool button_pressed(int key);
     int last_button_pressed();
+    void clear();
 }
 
 #endif // INTERFACE_H

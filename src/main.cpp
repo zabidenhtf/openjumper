@@ -115,7 +115,7 @@ int main(){
         //    scene->reset();
         //}
 
-        key_buffer.clear();
+        input::clear();
         gfx::swap();
 
         double frame_end = glfwGetTime();

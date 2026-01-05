@@ -12,6 +12,7 @@ void input::callback(GLFWwindow* window, int key, int scancode, int action, int 
 }
 
 void input::init(GLFWwindow* window){
+    write_dbg("INPUT", "Input initialisated");
     glfwSetKeyCallback(window, callback);
 }
 
@@ -28,4 +29,8 @@ int last_button_pressed(){
         return key_buffer.back();
     }
     return -1;
+}
+
+void input::clear(){
+    key_buffer.clear();
 }

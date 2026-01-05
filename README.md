@@ -26,6 +26,10 @@ Mykyta Polishyk - main developer of game
 - ASSIMP - for 3d models loading 
 - Blender - 3D editor
 
+## Ingame combo
+If you pressed more than 5 action buttons correctly, you will be get a combo. 
+When combo score for each action button will be 40
+
 ## Building
 ### Windows
 For build you need

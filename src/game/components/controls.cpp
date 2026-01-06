@@ -34,32 +34,34 @@ void game_controls::update(double tick){
             press_time = false;
         }
         if (press_time == true){
-            if (input::button_pressed(dance_binds[game->now_dance.movements[step]])){
-                //write("Pressed");
-                if (combo == true){
-                    game->message->spawn(MESSAGE_EXCELLENT);
-                }
-                switch (combo){
-                    case true:
-                        game->score += 40;
-                        break;
-                    case false:
-                        game->score += 20;
-                        break;
-                }
+            if (!key_buffer.empty()){
+                if (key_buffer.back() == dance_binds[game->now_dance.movements[step]]){
+                    //write("Pressed");
+                    if (combo == true){
+                        game->message->spawn(MESSAGE_EXCELLENT);
+                    }
+                    switch (combo){
+                        case true:
+                            game->score += 40;
+                            break;
+                        case false:
+                            game->score += 20;
+                            break;
+                    }
 
-                if (combo_step == 5){
-                    combo = true;
+                    if (combo_step == 5){
+                        combo = true;
+                    }
+                    else{
+                        combo_step ++;
+                    }
+                    press_time = false;
+                    can_press = false;
                 }
                 else{
-                    combo_step ++;
+                    combo_step = 0;
+                    combo = false;
                 }
-                press_time = false;
-                can_press = false;
-            }
-            else{
-                combo_step = 0;
-                combo = false;
             }
         }
 

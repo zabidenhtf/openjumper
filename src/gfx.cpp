@@ -229,9 +229,34 @@ void gfx::draw_2d_quad(vec2 pos, vec2 size, vec4 color){
 }
 
 void gfx::draw_2d_text(vec2 pos, int font_size, string text, vec4 color){
-    /* Render font texture HERE */
     for (int i = 0; i<text.length(); i++){
-        gfx::enable_texture(data2d::textures[NULL_TEX]);
+        FT_Set_Pixel_Sizes(face, 0, font_size);
+        // rendering char
+        FT_Load_Char(face, text[i], FT_LOAD_RENDER);
+        FT_GlyphSlot g = face->glyph;
+        // Generating texture
+        texture char_texture;
+        glGenTextures(1, &char_texture.texture_id);
+        glBindTexture(GL_TEXTURE_2D, char_texture.texture_id);
+        glTexImage2D(
+            GL_TEXTURE_2D,
+            0,
+            GL_RED,
+            g->bitmap.width,
+            g->bitmap.rows,
+            0,
+            GL_RED,
+            GL_UNSIGNED_BYTE,
+            g->bitmap.buffer
+        );
+        // Texture params 
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        // Finally render
+        gfx::enable_texture(char_texture);
         gfx::draw_2d_quad(pos + vec2(i*font_size,0), vec2(font_size,font_size), color);
         gfx::disable_texture();
     }

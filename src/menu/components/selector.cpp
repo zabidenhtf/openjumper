@@ -74,32 +74,30 @@ void menu_selector::draw_selection(vec2 pos, vec2 size, string text, vec4 color,
     if (selected == true){
         // Updating texture
         timer+=tick;
-        if (timer >= 0.1){
-            if (direction == true){
+        if (timer >= 0.1) {
+            if (direction) {
                 selection_indecator_id++;
+                if (selection_indecator_id >= indecator_textures.size()) {
+                    selection_indecator_id = indecator_textures.size() - 1;
+                    direction = false; // changing direction
+                }
+            } else {
+                if (selection_indecator_id == 0) {
+                    direction = true; // here too changing direction
+                } else {
+                    selection_indecator_id--;
+                }
             }
-            else{
-                selection_indecator_id--;
-            }
+
             write_dbg("SELECTOR", to_string(selection_indecator_id));
-            timer=0;
-        }
-        if (selection_indecator_id>=indecator_textures.size()){
-            switch (direction){
-                case true:
-                    direction = false;
-                    break;
-                case false:
-                    direction = true;
-                    break;
-            }
+            timer = 0;
         }
         // Draw arrows
         // Left
         gfx::enable_texture(data2d::textures[indecator_textures[selection_indecator_id]]);
-        gfx::draw_2d_quad(pos + vec2(text_x_pos-size.y, 0), vec2(size.y,size.y), vec4(1,1,1,1));
-        // Right  size.x-gfx::text_2d_width(size.y, text)
-        gfx::draw_2d_quad(pos + vec2(text_x_pos+gfx::text_2d_width(size.y, text) + size.y, 0), vec2(-size.y,size.y), vec4(1,1,1,1));
+        gfx::draw_2d_quad(pos + vec2(text_x_pos-size.y*2, 0), vec2(size.y*2,size.y), vec4(1,1,1,1));
+        // Right
+        gfx::draw_2d_quad(pos + vec2(text_x_pos+gfx::text_2d_width(size.y, text) + size.y*2, 0), vec2(-size.y*2,size.y), vec4(1,1,1,1));
         gfx::disable_texture();
     }
 }

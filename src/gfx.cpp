@@ -250,14 +250,22 @@ void gfx::draw_2d_text(vec2 pos, int font_size, string text, vec4 color){
             g->bitmap.buffer
         );
         // Texture params 
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_R, GL_ONE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_G, GL_ONE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_B, GL_ONE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_A, GL_RED);
+
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-        // Finally render
+        // Finally render (with size)
+        int w = g->bitmap.width;
+        int h = g->bitmap.rows;
+
         gfx::enable_texture(char_texture);
-        gfx::draw_2d_quad(pos + vec2(i*font_size,0), vec2(font_size,font_size), color);
+        gfx::draw_2d_quad(pos + vec2(i*font_size,0), vec2(w,h), color);
         gfx::disable_texture();
     }
 }

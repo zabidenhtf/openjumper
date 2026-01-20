@@ -8,6 +8,7 @@
 #include "system.hpp"
 #include "includes.hpp"
 #include "component.hpp"
+#include "version.hpp"
 
 class menu_copyright : public component{
 public:
@@ -17,6 +18,7 @@ public:
 	virtual void render();
 private:
 	string copyright_text;
+	string version_text;
 };
 
 #endif

@@ -7,6 +7,7 @@
 GLFWwindow *root = nullptr;
 GLuint shader2D; // 2D stuff
 GLuint shader3D; // 3D stuff
+
 // Camera
 vec3 cam_pos = vec3(0,0,0);
 vec3 cam_look = vec3(0,0,0);
@@ -56,10 +57,10 @@ void gfx::init(){
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
     if (fullscreen == "True"){
-        root = glfwCreateWindow(screen_width, screen_height, "Openjumper", glfwGetPrimaryMonitor(), NULL);
+        root = glfwCreateWindow(screen_width, screen_height, "Neojumper", glfwGetPrimaryMonitor(), NULL);
     }
     else{
-        root = glfwCreateWindow(screen_width, screen_height, "Openjumper", NULL, NULL);
+        root = glfwCreateWindow(screen_width, screen_height, "Neojumper", NULL, NULL);
     }
 
     if (!root){

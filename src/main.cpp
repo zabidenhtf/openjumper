@@ -56,6 +56,7 @@ int main(){
     screen_height = stoi(string(config::load_data("GFX", "screen_height", "600")));
     fov = stoi(string(config::load_data("GFX", "fov", "90")));
     fullscreen = string(config::load_data("GFX", "fullscreen", "False"));
+    shadow_resolution = stoi(string(config::load_data("GFX", "shadow_resolution", "512")));
 
     gfx::init();
     gfx::blend_normal();

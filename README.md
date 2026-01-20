@@ -1,8 +1,8 @@
 Warning, game now indev
-# Open Jumper - 3D game about jumpstyle dancing
+# Neojumper - 3D game about jumpstyle dancing
 
 ## Description
-Open Jumper - 3D game about jumpstyle dancing writed on C++ language. In game available 0 maps and 1 jumper (player).
+Neojumper - 3D game about jumpstyle dancing writed on C++ language. In game available 0 maps and 1 jumper (player).
 In game you can see
 - 3D graphics
 - Nice controls
@@ -69,6 +69,7 @@ make PLATFORM=LINUX
 
 -------------
 Milestone 0
+
 Copyright (C) 2025-2026 Mykyta Polishyk
 
 This project is licensed under the GNU General Public License v3.0 or later.

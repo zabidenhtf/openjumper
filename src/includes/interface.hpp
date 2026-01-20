@@ -1,6 +1,9 @@
 /* Copyright (C) 2025-2026 Mykyta Polishyk */
 /* This project is licensed under the GNU General Public License v3.0 or later. */
 /* See the LICENSE file for details. */
+#ifndef INTERFACE_H
+#define INTERFACE_H
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -17,13 +20,12 @@
 
 #include "system.hpp"
 #include "includes.hpp"
-#ifndef INTERFACE_H
-#define INTERFACE_H
 
 using namespace glm;
 
 inline int screen_width;
 inline int screen_height;
+inline int shadow_resolution;
 inline float fov;
 inline string fullscreen;
 

@@ -41,7 +41,7 @@ GLAD_TARGETS = lib/glad/src/glad.c
 
 CXX = g++
 CXXFLAGS = -Wall -g -O0
-EXEC = openjumper
+EXEC = neojumper
 
 all:
 ifdef PLATFORM

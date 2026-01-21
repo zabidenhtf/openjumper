@@ -229,9 +229,9 @@ void gfx::draw_2d_quad(vec2 pos, vec2 size, vec4 color){
     glBindVertexArray(0);
 }
 
-void gfx::draw_2d_text(vec2 pos, int font_size, string text, vec4 color){
+void gfx::draw_2d_text(vec2 pos, int text_size, int text_resolution, string text, vec4 color){
     for (int i = 0; i<text.length(); i++){
-        FT_Set_Pixel_Sizes(face, 0, font_size);
+        FT_Set_Pixel_Sizes(face, 0, text_resolution);
         // rendering char
         FT_Load_Char(face, text[i], FT_LOAD_RENDER);
         FT_GlyphSlot g = face->glyph;
@@ -260,21 +260,24 @@ void gfx::draw_2d_text(vec2 pos, int font_size, string text, vec4 color){
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
         // Finally render (with size)
+        FT_Set_Pixel_Sizes(face, 0, text_size);
+        FT_Load_Char(face, text[i], FT_LOAD_RENDER);
+        g = face->glyph; // Updating glyph to get correct sizes
+
         int x = g->bitmap_left;
         int y = g->bitmap_top;
         int w = g->bitmap.width;
         int h = g->bitmap.rows;
 
         gfx::enable_texture(char_texture);
-        gfx::draw_2d_quad(pos + vec2(x+i*font_size/1.5,-y+font_size), vec2(w,h), color);
+        gfx::draw_2d_quad(pos + vec2(x+i*text_size/1.5,-y+text_size), vec2(w,h), color);
         gfx::disable_texture();
     }
 }
 
-int gfx::text_2d_width(int font_size, string text){
-    return text.length() * font_size/1.5;
+int gfx::text_2d_width(int text_size, string text){
+    return text.length() * text_size/1.5;
 }
 
 texture gfx::load_texture(const string &filename)

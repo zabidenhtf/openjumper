@@ -17,5 +17,5 @@ void game_hud::render(){
     gfx::set_ortho(0,0, screen_width,screen_height);
 	// Just drawing text
 	string score_string = "Score:" + to_string(game->score);
-	gfx::draw_2d_text(vec2(0,0), 24, score_string, vec4(1,1,1,1));
+	gfx::draw_2d_text(vec2(0,0), 36, 36, score_string, vec4(1,1,1,1));
 }

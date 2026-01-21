@@ -20,6 +20,6 @@ void menu_copyright::render(){
 	gfx::set_viewport(0,0,screen_width, screen_height);
     gfx::set_ortho(0,0, screen_width,screen_height);
     // Just draw text, nothing special
-	gfx::draw_2d_text(vec2(12,screen_height-(24+12)*2), 16, version_text, vec4(0,0,0,1));
-	gfx::draw_2d_text(vec2(12,screen_height-24-12), 16, copyright_text, vec4(0,0,0,1));
+	gfx::draw_2d_text(vec2(12,screen_height-(24+12)*2), 16, 16, version_text, vec4(0,0,0,1));
+	gfx::draw_2d_text(vec2(12,screen_height-24-12), 16, 16, copyright_text, vec4(0,0,0,1));
 }

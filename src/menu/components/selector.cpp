@@ -70,7 +70,7 @@ void menu_selector::draw_selection(vec2 pos, vec2 size, string text, vec4 color,
     static int selection_indecator_id = 3;
     static bool direction = false;
     float text_x_pos = (size.x-gfx::text_2d_width(size.y, text))/2;
-    gfx::draw_2d_text(pos + vec2(text_x_pos,0), size.y, text, color);  
+    gfx::draw_2d_text(pos + vec2(text_x_pos,0), size.y, (screen_height/300)*size.y, text, color);  
     if (selected == true){
         // Updating texture
         timer+=tick;

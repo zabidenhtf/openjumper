@@ -1,4 +1,7 @@
-STORMY DAYS
+THIS SKY WAS UPDATED AT THE 27TH
+THE ORIG HAD SOME ERRORS
+
+MIRAMAR
 high res 1024^2 environment map
 ships as TGA.
 
